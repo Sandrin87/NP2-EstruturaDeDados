@@ -1,9 +1,24 @@
 from circular_node import node
 
 class CLinkedList:
-    def __init__(self):
-       self.head = None
+    def __init__(self,primeiroNo):
+        self.inicio = primeiroNo if primeiroNo is not None else node(None)
 
+        self.inicio.proximo = self.inicio
+        self.inicio.anterior = self.inicio
+
+    def insere_ultima_posicao(self, valor):
+        novo_no = node(valor)
+
+        if self.inicio is None:
+            self.inicio = novo_no    
+
+            self.inicio.proximo = self.inicio
+            self.inicio.anterior = self.inicio
+        else:
+            novo_no.anterior = self.inicio.proximo
+            self.inicio.proximo = novo_no
+            self.inicio.anterior = novo_no.anterior
     
     def addFront(self, element):
         newNode = node(element)
