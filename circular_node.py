@@ -1,5 +1,5 @@
 class node:
-    def __init__(self, valor, proximo = None, anterior = None):
-        self.valor = valor
-        self.proximo = proximo if proximo is not None else self.valor
-        self.anterior = anterior if anterior is not None else self.valor
+    def __init__(self, data, next = None, prev = None):
+        self.data = data
+        self.next = next if next is not None else self.data
+        self.prev = prev if prev is not None else self.data
