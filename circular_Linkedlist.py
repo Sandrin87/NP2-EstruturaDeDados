@@ -3,7 +3,6 @@ from circular_node import node
 class CLinkedList:
     def __init__(self):
        self.head = None
-
     
     def addFront(self, element):
         newNode = node(element)
@@ -110,10 +109,6 @@ class CLinkedList:
             return   
         else:
             print("\nElement not found.")
-        
-           
-
-
 
     def PrintList(self):
       current = self.head
