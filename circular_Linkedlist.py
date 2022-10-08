@@ -1,3 +1,4 @@
+from hashlib import new
 from circular_node import node
 
 class CLinkedList:
@@ -21,6 +22,23 @@ class CLinkedList:
             newNode.next = self.head
             self.head.prev = newNode
             self.head = newNode 
+
+
+    def addLast(self, element):
+        newNode = node(element)
+        if(self.head == None):
+            self.head = newNode
+            newNode.next = self.head
+            newNode.prev = self.head
+            return
+        else:
+          current = self.head
+          while(current.next != self.head):
+            current = current.next
+          current.next = newNode
+          newNode.next = self.head
+          newNode.prev = current
+          self.head.prev = newNode
 
     def addAtPosition(self, element, position):
         newNode = node(element)
