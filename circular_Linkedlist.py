@@ -4,15 +4,21 @@ class CLinkedList:
     def __init__(self, firstNode = None):
        self.head = firstNode if firstNode == None else node(firstNode)
     
-    def removeItemFromFirstPosition(self):
+    def DeleteFirst(self):
         if(self.head is not None):
-            firstNode = self.head
-            lastNode = self.head.prev
-            self.head = firstNode.next
-            self.head.prev = lastNode
-            del(firstNode)
-            
-
+            if(self.head.next is not None and self.head.prev is not None):
+                firstNode = self.head
+                lastNode = self.head.prev
+                self.head = firstNode.next
+                self.head.prev = lastNode
+                del(firstNode)
+            else:
+                firstNode = self.head
+                self.head = None
+                del(self.head)
+        else:
+            print("The list is emptiy, impossible to remove from empty list")
+    
     def addFront(self, element):
         newNode = node(element)
         if(self.head == None):
