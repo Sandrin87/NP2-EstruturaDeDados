@@ -37,8 +37,3 @@ TheList.PrintList()
 print("\nList with insertion at the end. ")
 TheList.addLast(100)
 TheList.PrintList()
-
-
-
-
-
