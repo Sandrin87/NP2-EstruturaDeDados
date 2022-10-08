@@ -34,6 +34,10 @@ TheList.DeleteElement(30)
 TheList.DeleteElement(70)
 TheList.PrintList()
 
+print("\nList with insertion at the end. ")
+TheList.addLast(100)
+TheList.PrintList()
+
 
 
 
