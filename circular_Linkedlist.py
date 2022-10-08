@@ -1,4 +1,3 @@
-from hashlib import new
 from circular_node import node
 
 class CLinkedList:
@@ -21,7 +20,6 @@ class CLinkedList:
             newNode.next = self.head
             self.head.prev = newNode
             self.head = newNode 
-
 
     def addLast(self, element):
         newNode = node(element)
@@ -127,6 +125,28 @@ class CLinkedList:
             return   
         else:
             print("\nElement not found.")
+
+    def GetAtIndex(self, index):
+        cont = 0
+        start = self.head
+        ended = False
+        if(start is not None):                
+            if(index == 0):
+                print(f"The list contains the index:{index}, the following data is: {start.data}")
+
+            while(cont != index):
+                start = start.next
+                cont += 1
+
+                if start == self.head:
+                    ended = True
+                    break
+            
+                if cont == index:
+                    print(f"The list contains the index:{index}, the following data is: {start.data}")
+            if ended:
+                print("The List does not contains the given index.")
+
 
     def PrintList(self):
       current = self.head

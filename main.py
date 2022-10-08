@@ -36,4 +36,6 @@ TheList.PrintList()
 
 print("\nList with insertion at the end. ")
 TheList.addLast(100)
+TheList.addLast(110)
 TheList.PrintList()
+TheList.GetAtIndex(0)
