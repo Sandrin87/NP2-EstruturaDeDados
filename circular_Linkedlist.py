@@ -1,9 +1,18 @@
 from circular_node import node
 
 class CLinkedList:
-    def __init__(self):
-       self.head = None
+    def __init__(self, firstNode = None):
+       self.head = firstNode if firstNode == None else node(firstNode)
     
+    def removeItemFromFirstPosition(self):
+        if(self.head is not None):
+            firstNode = self.head
+            lastNode = self.head.prev
+            self.head = firstNode.next
+            self.head.prev = lastNode
+            del(firstNode)
+            
+
     def addFront(self, element):
         newNode = node(element)
         if(self.head == None):
