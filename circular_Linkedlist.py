@@ -1,3 +1,5 @@
+from email import header
+from itertools import count
 from circular_node import node
 
 class CLinkedList:
@@ -5,19 +7,23 @@ class CLinkedList:
        self.head = firstNode if firstNode == None else node(firstNode)
     
     def DeleteFirst(self):
-        if(self.head is not None):
-            if(self.head.next is not None and self.head.prev is not None):
-                firstNode = self.head
-                lastNode = self.head.prev
-                self.head = firstNode.next
-                self.head.prev = lastNode
-                del(firstNode)
-            else:
-                firstNode = self.head
-                self.head = None
-                del(self.head)
-        else:
-            print("The list is emptiy, impossible to remove from empty list")
+        previous = self.head
+        nextOne = self.head
+
+        if(self.head is None):
+            print("\n Empty List")
+            return None
+        if(previous.next == previous):
+            self.head = None
+            return None
+        
+        while(previous.next != self.head):
+            previous = previous.next
+            nextOne = previous.next
+        
+        previous.next = nextOne.next
+        self.head = previous.next
+        return self.head
     
     def addFront(self, element):
         newNode = node(element)
@@ -47,10 +53,10 @@ class CLinkedList:
           current = self.head
           while(current.next != self.head):
             current = current.next
-          current.next = newNode
-          newNode.next = self.head
-          newNode.prev = current
-          self.head.prev = newNode
+        current.next = newNode
+        newNode.next = self.head
+        newNode.prev = current
+        self.head.prev = newNode
 
     def addAtPosition(self, element, position):
         newNode = node(element)
@@ -117,10 +123,10 @@ class CLinkedList:
               current = self.head
               while(current.next.next != self.head):
                 current = current.next
-              lastNode = current.next
-              current.next = self.head
-              self.head.prev = current
-              lastNode = None
+            lastNode = current.next
+            current.next = self.head
+            self.head.prev = current
+            lastNode = None
 
     def DeleteElement(self, delValue):
         if(self.head == None):
@@ -141,6 +147,34 @@ class CLinkedList:
         else:
             print("\nElement not found.")
 
+    def DeleteAtIndex(self, index):
+        _len = self.Length()
+        cont = 1
+        previous = self.head
+        nextOne = self.head
+
+        if(self.head is None):
+            print("\nThe list is empty")
+
+        if(index >= _len or index < 0):
+            print("\nIndex Not Found. ") 
+            return None
+
+        if(index == 0):
+            self.head = self.DeleteFirst()
+            return self.head
+
+        while(_len > 0):
+            if(index == cont):
+                previous.next = nextOne.next
+                return self.head
+
+            previous = previous.next
+            nextOne = previous.next
+            _len -= 1
+            cont += 1
+        return self.head        
+
     def GetAtIndex(self, index):
         cont = 0
         start = self.head
@@ -158,10 +192,9 @@ class CLinkedList:
                     break
             
                 if cont == index:
-                    print(f"The list contains the index:{index}, the following data is: {start.data}")
+                    print(f"The list contains the index: {index}, the following data is: {start.data}")
             if ended:
                 print("The List does not contains the given index.")
-
 
     def PrintList(self):
       current = self.head
@@ -174,8 +207,19 @@ class CLinkedList:
                 break
         print()
       else:
-        print("The list is empty")
+        print("The list is empty, 0 elements.")
 
 
+    def Length(self):
+        current = self.head
+        cont = 0
 
-                
+        if(self.head is None):
+            return 0
+        else:
+            while(True):
+                current = current.next
+                cont += 1
+                if(current == self.head):
+                    break
+        return cont

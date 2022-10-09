@@ -38,8 +38,17 @@ print("\nList with insertion at the end. ")
 TheList.addLast(100)
 TheList.addLast(110)
 TheList.PrintList()
+
+print("\nGetting the data from index. ")
 TheList.GetAtIndex(0)
+
+print("\nDeleting the first element of the list. ")
 TheList.DeleteFirst()
 TheList.PrintList()
-TheList.DeleteAtIndex(1)
+
+print("\nDeleting the element at index given. ")
+TheList.DeleteAtIndex(0)
 TheList.PrintList()
+
+print("\nSize of the List. ")
+print(TheList.Length())
