@@ -1,5 +1,3 @@
-from email import header
-from itertools import count
 from circular_node import node
 
 class CLinkedList:

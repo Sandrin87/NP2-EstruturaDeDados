@@ -20,11 +20,11 @@ print("\nList after inserting at a certain position: ")
 TheList.addAtPosition(70, 2)
 TheList.PrintList()
 
-#Search an element in the list
+# Search an element in the list
 TheList.SearchElement(2)
 TheList.SearchElement(30)
 
-#Delete the last node
+# Delete the last node
 print("\nList after deleting the last node:")
 TheList.DeleteLast()
 TheList.PrintList()
@@ -52,3 +52,23 @@ TheList.PrintList()
 
 print("\nSize of the List. ")
 print(TheList.Length())
+
+print("\n")
+print("---"*10)
+print("Testes extras: \n")
+
+Lista = CLinkedList()
+Lista.PrintList()
+Lista.DeleteAtIndex(2)
+Lista.DeleteElement(22)
+Lista.DeleteFirst()
+Lista.DeleteLast()
+Lista.SearchElement(20)
+Lista.GetAtIndex(3)
+
+Lista.addLast(3)
+Lista.PrintList()
+Lista.addFront(2)
+Lista.PrintList()
+Lista.addAtPosition(5.5, 2)
+Lista.PrintList()
