@@ -65,3 +65,24 @@ TheList.PrintList()
 print("\nSize of the List. ")
 print(TheList.Length())
 
+
+
+print("\n")
+print("---"*10)
+print("Testes extras: \n")
+
+Lista = CLinkedList()
+Lista.PrintList()
+Lista.DeleteAtIndex(2)
+Lista.DeleteElement(22)
+Lista.DeleteFirst()
+Lista.DeleteLast()
+Lista.SearchElement(20)
+Lista.GetAtIndex(3)
+
+Lista.addLast(3)
+Lista.PrintList()
+Lista.addFront(2)
+Lista.PrintList()
+Lista.addAtPosition(5.5, 2)
+Lista.PrintList()

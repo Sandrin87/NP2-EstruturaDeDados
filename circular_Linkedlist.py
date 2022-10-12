@@ -1,6 +1,3 @@
-from email import header
-from itertools import count
-from tracemalloc import start
 from circular_node import node
 
 class CLinkedList:
