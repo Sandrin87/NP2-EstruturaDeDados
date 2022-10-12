@@ -128,22 +128,38 @@ class CLinkedList:
 
     def DeleteElement(self, delValue):
         if(self.head == None):
-            return
+            return None
         current = self.head
-        found = False
-        while(current):
-            if(current.data == delValue):
-                found = True
-                break
+        prev1 = None
+        
+        while(current.data != delValue):
+            
+            if(current.next == self.head):
+                print("\nList doesn't have node, with value = ", delValue)
+                return self.head
+            
+            prev1 = current
             current = current.next
-        if(found == True):
-            prevNode = current.prev
-            nextNode = current.next
-            prevNode.next = nextNode
-            nextNode.prev = prevNode
-            return   
+        
+        if (current.next == self.head and prev1 == None):
+            self.head = None
+            return self.head
+        
+        if(current == self.head):
+            self.DeleteFirst()
+        
+        elif (current.next == self.head):
+            self.DeleteLast()
+
         else:
-            print("\nElement not found.")
+
+           temp = current.next
+           prev1.next = temp
+           temp.prev = prev1
+        
+        return self.head
+        
+
 
     def DeleteAtIndex(self, index):
         _len = self.Length()
