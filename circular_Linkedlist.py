@@ -1,9 +1,8 @@
+
 '''
 Nome: Gabriel Sandrin Pires R.A: G2713E-7
 Nome: Vitória Aparecida Souza Santos R.A: F3428E-4
 '''
-
-
 class node:
     def __init__(self, data, next = None, prev = None):
         self.data = data
