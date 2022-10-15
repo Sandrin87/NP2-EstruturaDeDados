@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-from circular_node import node
->>>>>>> 830abec34a76d2fa77dbebfb7a60345b1dfbf98c
 
 '''
 Nome: Gabriel Sandrin Pires R.A: G2713E-7
